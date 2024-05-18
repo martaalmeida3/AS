@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family:Open Sans;
+}
+
+.login{
+    height: 100vh;
+    background: #4484f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__text {
+    font-weight: bold;
+    color: #000000; 
+    font-size: 19px; 
+    position: relative;
+    bottom: 6px;
+}
+
+.additional-text {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    bottom: 20px;
+}
+
+.login__image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -58%;
+    width: 100%;
+}
+
+.login__image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.login__container{
+    min-width: 400px;
+    min-height: 400px;
+    width: 300px;
+    background-color: #e0dcdc;
+    box-sizing: border-box;
+    padding: 32px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login__button {
+    display: block;
+    width: 250px;
+    height: 30px;
+    margin-top: 25px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.login__title{
+    margin-bottom: 32px;
+    color: #303030;
+}
+
+.login__form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login__input{
+    height: 48px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 8px;
+    border: unset;
+    outline: none;
+}
+
+.login__input[type="email"] {
+    height: 30px; /* Ajusta a altura para 60px */
+    width: 250px;
+    color: #000000; /* Cor do texto */
+    font-size: 16px; /* Tamanho do texto */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #cccccc; /* Borda */
+    border-radius: 5px;
+
+}
+
+.login__input-border{
+    height: 1px;
+    width: 100%;
+    margin-bottom: 16px;
+    background-color: #cfcfcf;
+    transition: .3s ease-in;
+}
+
+.login__input-border::after{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 0;
+    margin-bottom: 16px;
+    background: var(--input-linear);
+    transition: .3s ease-in;
+}
+
+.login__input:focus + .login__input-border::after{
+    width: 100%;
+}
+
+.login__input-border.error{
+    background: var(--input-error);
+}
+
+.login__input-border.error::after{
+    background: var(--input-error);
+}
+
+.login__submit{
+     height: 48px;
+     width: 100%;
+     outline: none;
+     background: var(--button-linear);
+     background-size: 200%;
+     margin-bottom: 32px;
+     color: #fff;
+     font-size: 16px;
+     font-weight: bold;
+     border: unset;
+     border-radius: 4px;
+     cursor: pointer;
+     transition: .5s ease-in-out;
+
+}
+
+.login__submit:disabled{
+    background: #acacac;
+    cursor: not-allowed;  
+}
+
+.login__submit:hover{
+    background-position: right; 
+
+}
+
+.login__submit.error {
+    background: var(--input-error);
+}
+
+.login__submit.success {
+    background: var(--button-success);
+}
+
+.login__reset{
+    font-size: 12px;
+    color: #929292;
+    text-decoration: none;
+}
+.signup__button{
+    display: block;
+    width: 250px;
+    height: 30px;
+    margin-top: -5px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.button-container {
+    padding-bottom: 70px;
+}
+
+.continue-with {
+    display: flex;
+    align-items: center;
+    color: grey; /* Cor do texto */
+    text-align: center;
+    width: 100%;
+    margin-top: -50px;
+}
+
+.continue-with::before,
+.continue-with::after {
+    content: "";
+    flex-grow: 1;
+    background: #ffff;
+    height: 1px;
+    margin: 0 10px;
+}
+
+.google__button {
+    display: block;
+    width: 250px;
+    height: 30px;
+    margin-top: 20px;
+    background-color: #ffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.google__logo {
+    position: relative;
+    left: 80px;
+    top: -23px;
+    max-height: 18px; /* Define a altura máxima da imagem em pixels */
+    width: auto; /* Mantém a proporção original da imagem */
+}
+
+
+@media screen and (max-width: 600px) {
+    .login__container{
+        min-width: 100%; /* Aumenta a largura mínima para 90% */
+        width: 100%; /* Aumenta a largura para 85% */
+        padding: 16px;
+        position: fixed; /* Fixa o container na janela do navegador */
+        bottom: 0; /* Faz o container começar na parte inferior da tela */
+    }
+
+    .login__title{
+        font-size: 24px;
+    }
+
+    .login__input, .login__submit{
+        height: 60px;
+    }
+}
