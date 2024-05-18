@@ -93,4 +93,3 @@ document.getElementById('passwordForm').addEventListener('submit', function(even
         event.preventDefault();
     }
 });
-
