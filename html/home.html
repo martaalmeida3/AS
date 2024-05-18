@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script defer src="../js/script.js"></script>
+    <title>Home Page</title>
+    <style>
+        body {
+            background-color: #4484f4;
+            margin: 0;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: -25px; /* Ajuste um pouco mais para a esquerda */
+            width: calc(100% + 20px); /* Ajuste a largura para compensar o deslocamento */
+            background-color: #e0dcdc;
+            padding: 45px; /* Aumenta o padding para aumentar o tamanho da barra de navegação */
+            display: flex;
+            justify-content: space-between;
+            border-top-right-radius: 30px;
+            border-top-left-radius: 30px;
+            overflow: hidden;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            color: white;
+        }
+        .dropdown img {
+            width: 50px; /* Ajuste este valor para alterar a largura da imagem */
+            height: auto; /* Mantém a proporção da imagem */
+            margin-top: 10px; /* Adiciona uma margem no topo para mover a imagem para baixo */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="dropdown">
+            <img src="../images/traco.png">
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div> 
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+    <a href="#" class="button">Botão 1</a>
+    <a href="#" class="button">Botão 2</a>
+    <a href="#" class="button">Botão 3</a>
+</body>
+</html>
