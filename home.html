@@ -63,15 +63,33 @@
             top: 10px; /* Ajuste este valor para mover a imagem para cima ou para baixo */
             right: -215px;  /* Ajuste a posição horizontal */
         }
+
+        .profile-navbar {
+           position: relative;
+            top: 0; /* Mova a navbar para o topo da página */
+            right: -100px; /* Mova a navbar para a esquerda da página */
+            width: 50px; /* Faça a navbar ter a largura total da página */ 
+
+        }
+        .profile-picture-navbar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
         <div class="dropdown">
-            <a href="link_para_sua_pagina.html">
+            <a href="home.html">
                 <img class="traco-image" src="images/traco.png" alt="Traco Image">
             </a>
             <img class="wc-image" src="images/wc.png" alt="WC Image">
+        </div>
+        <div class="profile-navbar">
+            <a href="profile.html">
+                <img class = "profile-picture-navbar" src="images/profile-picture.jpg" alt="Profile Pic"
+            </a>
         </div> 
     </div>
 </body>
