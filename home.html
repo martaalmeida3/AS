@@ -35,18 +35,45 @@
             margin: 10px;
             color: white;
         }
-        .dropdown img {
-            position: absolute;
-            width: 50px; /* Ajuste este valor para alterar a largura da imagem */
+        .dropdown {
+            position: relative;
+        }
+        
+        .traco-image {
+            position: relative;
+            width: 45px; /* Ajuste este valor para alterar a largura da imagem */
             height: auto; /* Mantém a proporção da imagem */
-            margin-top: 20px; /* Adiciona uma margem no topo para mover a imagem para baixo */
+            margin-right: -20px; /* Ajuste a margem direita para compensar o deslocamento */
+        }
+        .traco-image::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid white;
+        }
+        .wc-image {
+            position: absolute;
+            width: 150px; /* Aumente este valor para aumentar a largura da imagem */
+            height: auto; /* Aumente este valor para aumentar a altura da imagem */
+            top: 10px; /* Ajuste este valor para mover a imagem para cima ou para baixo */
+            right: -215px;  /* Ajuste a posição horizontal */
         }
     </style>
 </head>
 <body>
     <div class="navbar">
         <div class="dropdown">
-            <img src="images/traco.png">
+            <a href="link_para_sua_pagina.html">
+                <img class="traco-image" src="images/traco.png" alt="Traco Image">
+            </a>
+            <img class="wc-image" src="images/wc.png" alt="WC Image">
         </div> 
+    </div>
 </body>
 </html>
+
