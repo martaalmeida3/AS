@@ -1,97 +1,54 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href=".css/style.css">
     <script defer src=".js/script.js"></script>
+    <link rel="stylesheet" href="../AS/css/style_base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Home Page</title>
-    <style>
-        body {
-            background-color: #4484f4;
-            margin: 0;
-        }
-        .navbar {
-            position: relative;
-            top: 0; /* Mova a navbar para o topo da página */
-            left: -20px; /* Mova a navbar para a esquerda da página */
-            width: 100%; /* Faça a navbar ter a largura total da página */
-            background-color: #e0dcdc;
-            padding: 60px; /* Reduza o padding para diminuir a altura da navbar */
-            display: flex;
-            justify-content: space-between;
-            border-top-right-radius: 30px;
-            border-top-left-radius: 30px;
-            overflow: hidden;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            color: white;
-        }
-        .dropdown {
-            position: relative;
-        }
-        
-        .traco-image {
-            position: relative;
-            width: 45px; /* Ajuste este valor para alterar a largura da imagem */
-            height: auto; /* Mantém a proporção da imagem */
-            margin-right: -20px; /* Ajuste a margem direita para compensar o deslocamento */
-        }
-        .traco-image::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 15px solid white;
-        }
-        .wc-image {
-            position: absolute;
-            width: 150px; /* Aumente este valor para aumentar a largura da imagem */
-            height: auto; /* Aumente este valor para aumentar a altura da imagem */
-            top: 10px; /* Ajuste este valor para mover a imagem para cima ou para baixo */
-            right: -215px;  /* Ajuste a posição horizontal */
-        }
-
-        .profile-navbar {
-           position: relative;
-            top: 0; /* Mova a navbar para o topo da página */
-            right: -100px; /* Mova a navbar para a esquerda da página */
-            width: 50px; /* Faça a navbar ter a largura total da página */ 
-
-        }
-        .profile-picture-navbar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-        }
-    </style>
 </head>
+
 <body>
     <div class="navbar">
-        <div class="dropdown">
-            <a href="home.html">
-                <img class="traco-image" src="images/traco.png" alt="Traco Image">
-            </a>
-            <img class="wc-image" src="images/wc.png" alt="WC Image">
-        </div>
-        <div class="profile-navbar">
-            <a href="profile.html">
-                <img class = "profile-picture-navbar" src="images/profile-picture.jpg" alt="Profile Pic"
-            </a>
-        </div> 
+        <span class="menu-btn" onclick="openNav()">&#9776;</span>
+        <div class="logo">WorkCircle</div>
+        <a href="profile.html">
+            <img class="profile" src="images/profile-picture.jpg" alt="Profile Pic">
+        </a>
     </div>
-</body>
-</html>
+    <div id="mySidenav" class="sidenav">
+        <div class="logo">WorkCircle</div>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../AS/home.html">Home</a>
+        <a href="../AS/reserve_form.html">Reserve Space</a>
+        <a href="../AS/reservations.html">Check Reservations</a>
+        <a href="../AS/checkSpace.html">Check Space</a>
+        <a href="../AS/About.html">About Us</a>
+        <div class="user-info">
+            <a href="../AS/profile.html" class="profile-sidebar"><img src="images/profile-picture.jpg"
+                    alt="Profile Pic"></a>
+            <p>John Doe</p>
+        </div>
+    </div>
+    <div class="content-buttons">
+        <a class="content-button" href="../AS/reserve_form.html">Reserve</a>
+        <a class="content-button" href="../AS/checkReserves.html">Check Reservations</a>
+        <a class="content-button" href="../AS/checkSpace.html">Check Space</a>
+        <a class="content-button" href="">Speak with Us</a>
+    </div>
 
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>
