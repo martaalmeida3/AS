@@ -58,7 +58,7 @@
         }
 
         .profile-picture {
-            width: 0px;
+            width: 100px;
             height: 100px;
             border-radius: 50%;
             object-fit: cover;
@@ -189,7 +189,6 @@
     
 
         window.onload = function () {
-            saveChanges();
             // Carrega os valores salvos na memória do navegador
             document.getElementById('name').value = localStorage.getItem('name') || 'Nuno Ribeiro';
             document.getElementById('username').value = localStorage.getItem('username') || 'nuno.ribeiro';
