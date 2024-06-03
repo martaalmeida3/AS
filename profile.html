@@ -218,7 +218,15 @@
             document.getElementById('email').value = localStorage.getItem('email') || 'nunor@ua.pt';
             document.getElementById('associated').value = localStorage.getItem('associated') || 'WorkCircle';
             document.getElementById('bio').value = localStorage.getItem('bio') || 'Nuno Ribeiro é professor auxiliar convidado na Universidade de Aveiro e investigador no Neurolab da mesma instituição. Ele possui mestrado e doutorado em Psicologia pela Universidade de Aveiro. Sua pesquisa concentra-se na neuropsicologia e psicobiologia, com ênfase na avaliação e reabilitação neuropsicológica';
+
+            // Adicione um listener para detectar mudanças nos campos e salvar na memória
+            document.querySelectorAll('.info input, .info textarea').forEach(function (elem) {
+                elem.addEventListener('change', function () {
+                    saveChanges();
+                });
+            });
         };
+
 
     </script>
 </body>
