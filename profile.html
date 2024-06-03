@@ -178,22 +178,24 @@
         function toggleEditing() {
             const isDisabled = document.getElementById('name').disabled;
 
-            // Habilita ou desabilita a edição dos campos
+            // Alterna o estado de edição dos campos
             document.getElementById('name').disabled = !isDisabled;
             document.getElementById('username').disabled = !isDisabled;
             document.getElementById('email').disabled = !isDisabled;
             document.getElementById('associated').disabled = !isDisabled;
             document.getElementById('bio').disabled = !isDisabled;
 
-            if (isDisabled) {
-                document.getElementById('edit-profile-button').textContent = 'Save Changes';
-            } else {
-                document.getElementById('edit-profile-button').textContent = 'Edit Profile';
-
-                // Salva as alterações nos campos editáveis
+            if (!isDisabled) {
+                // Se os campos estavam habilitados (ou seja, estavam em modo de edição),
+                // então salvamos as alterações ao invés de mudar o texto do botão
                 saveChanges();
+            } else {
+                // Se os campos estavam desabilitados (ou seja, estavam em modo de visualização),
+                // então alteramos o texto do botão
+                document.getElementById('edit-profile-button').textContent = 'Salvar Alterações';
             }
         }
+
 
         function saveChanges() {
             // Obtém os valores dos campos editáveis
