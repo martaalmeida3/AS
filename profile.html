@@ -1,206 +1,228 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=".css/style.css">
-    <script defer src=".js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
     <title>Profile</title>
     <style>
-        body {
-            background-color: #4484f4;
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            background-color: #007bff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #e0e0e0;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 20px;
             margin: 0;
         }
 
-        .navbar {
-            position: relative;
-            top: 0;
-            /* Mova a navbar para o topo da página */
-            left: -20px;
-            /* Mova a navbar para a esquerda da página */
-            width: 100%;
-            /* Faça a navbar ter a largura total da página */
-            background-color: #e0dcdc;
-            padding: 60px;
-            /* Reduza o padding para diminuir a altura da navbar */
-            display: flex;
-            justify-content: space-between;
-            border-top-right-radius: 30px;
-            border-top-left-radius: 30px;
-            overflow: hidden;
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
         }
 
-        .navbar a {
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 30px;
+        }
+
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            background-color: #ccc;
+            position: relative;
+            bottom: 45px;
+        }
+
+        .content {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
             color: white;
-            text-decoration: none;
-            margin: 0 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 60px;
         }
 
         .button {
             display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
+            background-color: black;
             color: white;
-        }
-
-        .dropdown {
-            position: relative;
-            
-        }
-
-        .traco-image {
-            position: relative;
-            width: 45px;
-            /* Ajuste este valor para alterar a largura da imagem */
-            height: auto;
-            /* Mantém a proporção da imagem */
-            margin-right: -20px;
-            /* Ajuste a margem direita para compensar o deslocamento */
-        }
-
-       .profile-picture {
-            position: relative;
-            width: 45px;
-            /* Ajuste este valor para alterar a largura da imagem */
-            height: auto;
-            /* Mantém a proporção da imagem */
-            margin-right: -20px;
-            /* Ajuste a margem direita para compensar o deslocamento */
-        } 
-
-        .traco-image::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 15px solid white;
-        }
-        
-
-        .wc-image {
-            position: absolute;
-            width: 150px;
-            /* Aumente este valor para aumentar a largura da imagem */
-            height: auto;
-            /* Aumente este valor para aumentar a altura da imagem */
-            top: 0px;
-            /* Ajuste este valor para mover a imagem para cima ou para baixo */
-            right: -215px;
-            /* Ajuste a posição horizontal */
-    
-        }
-        .profile-container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile-header {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px 0;
+            cursor: pointer;
+            width: 100%;
             text-align: center;
         }
 
-        .profile-picture {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
+        .info {
+            text-align: left;
+            width: 100%;
+            color: white;
         }
 
-        .name {
-            margin: 10px 0 0;
-            font-size: 24px;
-            color: #333;
+        .info label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
         }
 
-        .title {
-            margin: 5px 0 20px;
-            font-size: 18px;
-            color: #777;
+        .info p,
+        .info input,
+        .info textarea {
+            margin: 5px 0;
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
         }
 
-        .profile-content {
+        .info input:disabled,
+        .info textarea:disabled {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+
+        .logout-button {
+            display: block;
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
             margin-top: 20px;
         }
 
-        .profile-content h2 {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 10px;
+        .flex-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
-        .profile-content p {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .profile-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .profile-content ul li {
-            background: #f4f4f4;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 4px;
-            font-size: 16px;
-            color: #333;
-        }
-        .profile-navbar {
-            position: relative;
-            top: 0; /* Mova a navbar para o topo da página */
-            right: -100px; /* Mova a navbar para a esquerda da página */
-            width: 50px; /* Faça a navbar ter a largura total da página */ 
-
-        }
-        .profile-picture-navbar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .flex-container .button {
+            flex: 1;
+            margin: 10px 5px;
+            max-width: 200px;
         }
     </style>
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="dropdown">
-            <a href="home.html">
-                <img class="traco-image" src="images/traco.png" alt="Traco Image">
-            </a>
-            <img class="wc-image" src="images/wc.png" alt="WC Image">
+    <div class="header">
+        <div class="menu-icon">&#9776;</div>
+        <h1>WorkCircle</h1>
+        <img src="https://via.placeholder.com/40" alt="Profile" class="profile-icon">
+    </div>
+    <div class="container">
+        <div class="content">
+            <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-picture">
+            <button class="edit-picture-button" onclick="document.getElementById('fileInput').click()">Edit
+                Picture</button>
+            <input type="file" id="fileInput" style="display: none;" onchange="handleFileSelect(event)" />
+            <div class="info">
+                <label>Name</label>
+                <input type="text" id="name" value="Nuno Ribeiro" disabled>
+                <label>Username</label>
+                <input type="text" id="username" value="nuno.ribeiro" disabled>
+                <label>Email</label>
+                <input type="email" id="email" value="nunor@ua.pt" disabled>
+                <label>Associated</label>
+                <input type="text" id="associated" value="WorkCircle" disabled>
+                <label>Bio</label>
+                <textarea id="bio" rows="4"
+                    disabled>Nuno Ribeiro é professor auxiliar convidado na Universidade de Aveiro e investigador no Neurolab da mesma instituição. Ele possui mestrado e doutorado em Psicologia pela Universidade de Aveiro. Sua pesquisa concentra-se na neuropsicologia e psicobiologia, com ênfase na avaliação e reabilitação neuropsicológica</textarea>
+            </div>
+            <div class="flex-container">
+                <a class="button" id="edit-profile-button" onclick="toggleEditing()">Edit Profile</a>
+            </div>
+            <button class="logout-button">Log Out</button>
+        </div>
+    </div>
+    <script>
+        function toggleEditing() {
+            const isDisabled = document.getElementById('name').disabled;
+            document.getElementById('name').disabled = !isDisabled;
+            document.getElementById('username').disabled = !isDisabled;
+            document.getElementById('email').disabled = !isDisabled;
+            document.getElementById('associated').disabled = !isDisabled;
+            document.getElementById('bio').disabled = !isDisabled;
 
-        </div>
-    </div>
-    <div class="profile-container">
-        <div class="profile-header">
-            <img src="images/profile-picture.jpg" alt="Profile Picture" class="profile-picture">
-        </div>
-        <div class="profile-content">
-            <h3>Name</h3>
-            <p>John Doe</p>
-            <h3>Username</h3>
-            <p>@JohnDoe42</p>
-            <h3>Contact</h3>
-            <p>Email: johndoe@ua.pt</p>
-            <p>Phone: (351) 937890520</p> 
-            <h3>Associated :</h3>
-            <ul>
-                <li>Universidade de Aveiro</li>
-                <li>Work Circle</li>
-            </ul>
-            <h3>About Me</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante
-                dapibus diam.</p>
-        </div>
-    </div>
+            if (isDisabled) {
+                document.getElementById('edit-profile-button').textContent = 'Save Changes';
+            } else {
+                document.getElementById('edit-profile-button').textContent = 'Edit Profile';
+            }
+        }
+
+        function handleFileSelect(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.querySelector('.profile-icon').src = e.target.result;
+                document.querySelector('.profile-picture').src = e.target.result;
+
+                var userEmail = 'JohnDoe@ua.pt';
+                localStorage.setItem(userEmail, e.target.result);
+                console.log(localStorage.getItem(userEmail));
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+        window.onload = function () {
+            var userEmail = 'JohnDoe@ua.pt';
+            var storedImage = localStorage.getItem(userEmail);
+
+            if (storedImage) {
+                document.querySelector('.profile-icon').src = storedImage;
+                document.querySelector('.profile-picture').src = storedImage;
+            }
+        };
+    </script>
 </body>
 
 </html>
