@@ -150,23 +150,28 @@
 
 <body>
     <div class="header">
-        <!-- Cabeçalho -->
+        <div class="menu-icon">&#9776;</div>
+        <h1>WorkCircle</h1>
+        <img src="https://via.placeholder.com/40" alt="Profile" class="profile-icon">
     </div>
     <div class="container">
         <div class="content">
-            <!-- Conteúdo da Página -->
+            <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-picture">
+            <button class="edit-picture-button" onclick="document.getElementById('fileInput').click()">Edit
+                Picture</button>
+            <input type="file" id="fileInput" style="display: none;" onchange="handleFileSelect(event)" />
             <div class="info">
-                <label for="name">Name</label>
-                <input type="text" id="name" value="Nuno Ribeiro">
-                <label for="username">Username</label>
-                <input type="text" id="username" value="nuno.ribeiro">
-                <label for="email">Email</label>
-                <input type="email" id="email" value="nunor@ua.pt">
-                <label for="associated">Associated</label>
-                <input type="text" id="associated" value="WorkCircle">
-                <label for="bio">Bio</label>
-                <textarea id="bio"
-                    rows="4">Nuno Ribeiro é professor auxiliar convidado na Universidade de Aveiro e investigador no Neurolab da mesma instituição. Ele possui mestrado e doutorado em Psicologia pela Universidade de Aveiro. Sua pesquisa concentra-se na neuropsicologia e psicobiologia, com ênfase na avaliação e reabilitação neuropsicológica</textarea>
+                <label>Name</label>
+                <input type="text" id="name" value="Nuno Ribeiro" disabled>
+                <label>Username</label>
+                <input type="text" id="username" value="nuno.ribeiro" disabled>
+                <label>Email</label>
+                <input type="email" id="email" value="nunor@ua.pt" disabled>
+                <label>Associated</label>
+                <input type="text" id="associated" value="WorkCircle" disabled>
+                <label>Bio</label>
+                <textarea id="bio" rows="4"
+                    disabled>Nuno Ribeiro é professor auxiliar convidado na Universidade de Aveiro e investigador no Neurolab da mesma instituição. Ele possui mestrado e doutorado em Psicologia pela Universidade de Aveiro. Sua pesquisa concentra-se na neuropsicologia e psicobiologia, com ênfase na avaliação e reabilitação neuropsicológica</textarea>
             </div>
             <div class="flex-container">
                 <a class="button" id="edit-profile-button" onclick="toggleEditing()">Edit Profile</a>
@@ -174,63 +179,64 @@
             <button class="logout-button">Log Out</button>
         </div>
     </div>
-    <script>
-        function toggleEditing() {
-            const isDisabled = document.getElementById('name').disabled;
+</body>
+<script>
+    function toggleEditing() {
+        const isDisabled = document.getElementById('name').disabled;
 
-            // Alterna o estado de edição dos campos
-            document.getElementById('name').disabled = !isDisabled;
-            document.getElementById('username').disabled = !isDisabled;
-            document.getElementById('email').disabled = !isDisabled;
-            document.getElementById('associated').disabled = !isDisabled;
-            document.getElementById('bio').disabled = !isDisabled;
+        // Alterna o estado de edição dos campos
+        document.getElementById('name').disabled = !isDisabled;
+        document.getElementById('username').disabled = !isDisabled;
+        document.getElementById('email').disabled = !isDisabled;
+        document.getElementById('associated').disabled = !isDisabled;
+        document.getElementById('bio').disabled = !isDisabled;
 
-            if (!isDisabled) {
-                // Se os campos estavam habilitados (ou seja, estavam em modo de edição),
-                // então salvamos as alterações ao invés de mudar o texto do botão
+        if (!isDisabled) {
+            // Se os campos estavam habilitados (ou seja, estavam em modo de edição),
+            // então salvamos as alterações ao invés de mudar o texto do botão
+            saveChanges();
+        } else {
+            // Se os campos estavam desabilitados (ou seja, estavam em modo de visualização),
+            // então alteramos o texto do botão
+            document.getElementById('edit-profile-button').textContent = 'Salvar Alterações';
+        }
+    }
+
+
+    function saveChanges() {
+        // Obtém os valores dos campos editáveis
+        const name = document.getElementById('name').value;
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const associated = document.getElementById('associated').value;
+        const bio = document.getElementById('bio').value;
+
+        // Salva os novos valores na memória do navegador
+        localStorage.setItem('name', name);
+        localStorage.setItem('username', username);
+        localStorage.setItem('email', email);
+        localStorage.setItem('associated', associated);
+        localStorage.setItem('bio', bio);
+    }
+
+    window.onload = function () {
+        // Carrega os valores salvos na memória do navegador
+        document.getElementById('name').value = localStorage.getItem('name') || 'Nuno Ribeiro';
+        document.getElementById('username').value = localStorage.getItem('username') || 'nuno.ribeiro';
+        document.getElementById('email').value = localStorage.getItem('email') || 'nunor@ua.pt';
+        document.getElementById('associated').value = localStorage.getItem('associated') || 'WorkCircle';
+        document.getElementById('bio').value = localStorage.getItem('bio') || 'Nuno Ribeiro é professor auxiliar convidado na Universidade de Aveiro e investigador no Neurolab da mesma instituição. Ele possui mestrado e doutorado em Psicologia pela Universidade de Aveiro. Sua pesquisa concentra-se na neuropsicologia e psicobiologia, com ênfase na avaliação e reabilitação neuropsicológica';
+
+        // Adicione um listener para detectar mudanças nos campos e salvar na memória
+        document.querySelectorAll('.info input, .info textarea').forEach(function (elem) {
+            elem.addEventListener('change', function () {
                 saveChanges();
-            } else {
-                // Se os campos estavam desabilitados (ou seja, estavam em modo de visualização),
-                // então alteramos o texto do botão
-                document.getElementById('edit-profile-button').textContent = 'Salvar Alterações';
-            }
-        }
-
-
-        function saveChanges() {
-            // Obtém os valores dos campos editáveis
-            const name = document.getElementById('name').value;
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const associated = document.getElementById('associated').value;
-            const bio = document.getElementById('bio').value;
-
-            // Salva os novos valores na memória do navegador
-            localStorage.setItem('name', name);
-            localStorage.setItem('username', username);
-            localStorage.setItem('email', email);
-            localStorage.setItem('associated', associated);
-            localStorage.setItem('bio', bio);
-        }
-
-        window.onload = function () {
-            // Carrega os valores salvos na memória do navegador
-            document.getElementById('name').value = localStorage.getItem('name') || 'Nuno Ribeiro';
-            document.getElementById('username').value = localStorage.getItem('username') || 'nuno.ribeiro';
-            document.getElementById('email').value = localStorage.getItem('email') || 'nunor@ua.pt';
-            document.getElementById('associated').value = localStorage.getItem('associated') || 'WorkCircle';
-            document.getElementById('bio').value = localStorage.getItem('bio') || 'Nuno Ribeiro é professor auxiliar convidado na Universidade de Aveiro e investigador no Neurolab da mesma instituição. Ele possui mestrado e doutorado em Psicologia pela Universidade de Aveiro. Sua pesquisa concentra-se na neuropsicologia e psicobiologia, com ênfase na avaliação e reabilitação neuropsicológica';
-
-            // Adicione um listener para detectar mudanças nos campos e salvar na memória
-            document.querySelectorAll('.info input, .info textarea').forEach(function (elem) {
-                elem.addEventListener('change', function () {
-                    saveChanges();
-                });
             });
-        };
+        });
+    };
 
 
-    </script>
+</script>
 </body>
 
 </html>
