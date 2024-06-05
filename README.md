@@ -1,8 +1,8 @@
 Projeto Desenvolvido no intuito da disciplina de Análise de Sistemas:
 Membros :
--Marta Almeida (108467)
--Martim Pinheiro (112938)
--Tiago Ferreira (112787)
+-Marta Almeida (108467)\n
+-Martim Pinheiro (112938)\n
+-Tiago Ferreira (112787)\n
 
 
 Credenciais para Login :
