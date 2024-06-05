@@ -1,9 +1,8 @@
-Projeto Desenvolvido no intuito da disciplina de Análise de Sistemas:<br/>
-Membros :
--Marta Almeida (108467)\n
--Martim Pinheiro (112938)\n
--Tiago Ferreira (112787)\n
-
+Projeto Desenvolvido no intuito da disciplina de Análise de Sistemas:
+Membros :<br/>
+-Marta Almeida (108467)<br/>
+-Martim Pinheiro (112938)<br/>
+-Tiago Ferreira (112787)<br/>
 
 Credenciais para Login :
 - Email : nunor@ua.pt
