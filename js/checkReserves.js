@@ -31,6 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
         popup.style.display = 'block';
     }
 
+    document.getElementById('end-btn').addEventListener('click', function() {
+        window.location.href = 'home.html';
+    });
+
     // Close popup when close button is clicked
     const closeBtn = document.querySelector('.close-btn');
     closeBtn.addEventListener('click', function() {

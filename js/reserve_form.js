@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (isAvailable) {
             showPopup('reserve-available');
             setTimeout(function() {
-                window.location.href = "home.html";
+                window.location.href = "myReserve.html";
             }, 3000); // Redirect after 3 seconds
         } else {
             showPopup('reserve-unavailable');

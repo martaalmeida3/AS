@@ -80,12 +80,12 @@
         <a href="../AS/About.html">About Us</a>
         <div class="user-info">
             <a href="../AS/profile.html" class="profile-sidebar"><img src="images/profile-picture.jpg" alt="Profile Pic"></a>
-            <p>John Doe</p>
+            <p>Nuno Ribeiro</p>
         </div>
     </div>
     <div class="reservations">
         <div class="reservation">
-            <button class="reservation-btn">Makerlab: Universidade de Aveiro</button>
+            <button type="submit" class="reservation-btn">Makerlab: Universidade de Aveiro</button>
             <div class="dropdown-content">
                 <h2>Reservation Details</h2>
                 <p><strong>Space:</strong> Makerlab</p>
@@ -141,6 +141,9 @@
                     dropdownContent.style.display = 'block';
                 }
         }
+        document.getElementById('reservation-btn').addEventListener('click', function () {
+            window.location.href = 'myReserve.html';
+        });
     </script>
 </body>
 </html>

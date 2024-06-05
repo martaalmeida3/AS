@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href=".css/style.css">
-    <link rel="stylesheet" href=".css/style_base.css">
-    
+    <link rel="stylesheet" href="../AS/css/style_base.css">
+
     <title>Profile</title>
     <style>
         body,
@@ -148,16 +148,23 @@
         }
     </style>
     <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
         function toggleEditing() {
             const isDisabled = document.getElementById('name').disabled;
-    
+
             // Alterna o estado de edição dos campos
             document.getElementById('name').disabled = !isDisabled;
             document.getElementById('username').disabled = !isDisabled;
             document.getElementById('email').disabled = !isDisabled;
             document.getElementById('associated').disabled = !isDisabled;
             document.getElementById('bio').disabled = !isDisabled;
-            
+
             if (!isDisabled) {
                 // Se os campos estavam habilitados (ou seja, estavam em modo de edição),
                 // então salvamos as alterações ao invés de mudar o texto do botão
@@ -166,11 +173,11 @@
             } else {
                 // Se os campos estavam desabilitados (ou seja, estavam em modo de visualização),
                 // então alteramos o texto do botão
-               document.getElementById('edit-profile-button').textContent = 'Salvar Alterações';
+                document.getElementById('edit-profile-button').textContent = 'Salvar Alterações';
             }
         }
-    
-    
+
+
         function saveChanges() {
             // Obtém os valores dos campos editáveis
             const name = document.getElementById('name').value;
@@ -178,7 +185,7 @@
             const email = document.getElementById('email').value;
             const associated = document.getElementById('associated').value;
             const bio = document.getElementById('bio').value;
-    
+
             // Salva os novos valores na memória do navegador
             localStorage.setItem('name', name);
             localStorage.setItem('username', username);
@@ -186,7 +193,7 @@
             localStorage.setItem('associated', associated);
             localStorage.setItem('bio', bio);
         }
-    
+
 
         window.onload = function () {
             // Carrega os valores salvos na memória do navegador
@@ -195,20 +202,20 @@
             document.getElementById('email').value = localStorage.getItem('email') || 'nunor@ua.pt';
             document.getElementById('associated').value = localStorage.getItem('associated') || 'WorkCircle';
             document.getElementById('bio').value = localStorage.getItem('bio') || 'Nuno Ribeiro é professor auxiliar convidado na Universidade de Aveiro e investigador no Neurolab da mesma instituição. Ele possui mestrado e doutorado em Psicologia pela Universidade de Aveiro. Sua pesquisa concentra-se na neuropsicologia e psicobiologia, com ênfase na avaliação e reabilitação neuropsicológica';
-    
+
             // Adicione um listener para detectar mudanças nos campos e salvar na memória
             document.querySelectorAll('.info input, .info textarea').forEach(function (elem) {
                 elem.addEventListener('change', function () {
                     saveChanges();
                 });
             });
-            
-        document.getElementById('logout-button').addEventListener('click', function () {
-            window.location.href = "index.html";
-        });
+
+            document.getElementById('logout-button').addEventListener('click', function () {
+                window.location.href = "index.html";
+            });
         };
-        
-    
+
+
     </script>
 </head>
 
@@ -217,7 +224,6 @@
         <span class="menu-btn" onclick="openNav()">&#9776;</span>
         <div class="logo">WorkCircle</div>
         <a href="profile.html">
-            <img class="profile-img" src="images/profile-picture.jpg" alt="Profile Pic">
         </a>
     </div>
     <div id="mySidenav" class="sidenav">
@@ -225,30 +231,29 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="../AS/home.html">Home</a>
         <a href="../AS/reserve_form.html">Reserve Space</a>
-        <a href="../AS/reservations.html">Check Reservations</a>
+        <a href="../AS/checkReserves.html">Check Reservations</a>
         <a href="../AS/checkSpace.html">Check Space</a>
         <a href="../AS/About.html">About Us</a>
         <div class="user-info">
-            <a href="../AS/profile.html" class="profile-sidebar"><img src="images/profile-picture.jpg"
-                    alt="Profile Pic"></a>
-            <p>John Doe</p>
+            <a href="../AS/profile.html" class="profile-sidebar"><img src="images/profile-picture.jpg" alt="Profile Pic"></a>
+            <p>Nuno Ribeiro</p>
         </div>
     </div>
     <div class="container">
         <div class="content">
-            <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-picture">
+            <img src="images/profile-picture.jpg" alt="Profile Picture" class="profile-picture">
             <button class="edit-picture-button" onclick="document.getElementById('fileInput').click()">Edit
                 Picture</button>
             <input type="file" id="fileInput" style="display: none;" onchange="handleFileSelect(event)" />
             <div class="info">
                 <label>Name</label>
-                <input type="text" id="name" disabled >
+                <input type="text" id="name" disabled>
                 <label>Username</label>
-                <input type="text" id="username"disabled >
+                <input type="text" id="username" disabled>
                 <label>Email</label>
-                <input type="email" id="email"disabled >
+                <input type="email" id="email" disabled>
                 <label>Associated</label>
-                <input type="text" id="associated" disabled >
+                <input type="text" id="associated" disabled>
                 <label>Bio</label>
                 <textarea id="bio" rows="4" disabled></textarea>
             </div>
