@@ -1,4 +1,4 @@
-Projeto Desenvolvido no intuito da disciplina de Análise de Sistemas:
+Projeto Desenvolvido no intuito da disciplina de Análise de Sistemas:<br/>
 Membros :
 -Marta Almeida (108467)\n
 -Martim Pinheiro (112938)\n
